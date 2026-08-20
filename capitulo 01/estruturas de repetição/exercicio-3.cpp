@@ -3,13 +3,12 @@
 using namespace std;
 int main()
 {
-    int tabuada[11][11],contador=0;
+    int tabuada[11][11];
     int i;
     int j;
     
     //criar a matriz multiplicando um indice pelo outro, com o j multiplicando todos os numeros pelo indice i criando a tabuada
     for(i=0;i<11;i++){
-        contador=1;
         for(j=0;j<11;j++){
             tabuada[i][j]=i*j;
         }
