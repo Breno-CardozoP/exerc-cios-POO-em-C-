@@ -1,41 +1,26 @@
-//Crie um programa que leia 10 números entre 0 e 9 e mostre quantas vezes cada número apareceu.
 #include <iostream>
-#include<vector>
+#include <vector>
 using namespace std;
-int main()
-{
-    int num,contador,atual;
-    vector<int> numeros;
-    
-    cout<<"insira numeros de 0 a 9: ";
+
+int main() {
+    vector<int> contagem(10, 0);
+    int num;
+
+    cout << "insira numeros de 0 a 9: ";
     for (int i = 0; i < 10; i++) {
-        cin>>num;
-        if(num>9 || num<0){
-            cout<<"numero invalido.";
-            break;
+        cin >> num;
+
+        if (num > 9 || num < 0) {
+            cout << "numero invalido.";
+            return 0;
         }
-        
-        numeros.push_back(num);
+
+        contagem[num]++;//utiliza o numero como indice e sempre que esse numero é adicionado a contagem em seu indice aumenta(exemplo se digitar 3 a posição tres aumenta 1)
     }
-    
-    //mostrar quantas vezes cada um apareceu
-    for (int x : numeros) {
-        contador=0;
-        //verificar se tem valores iguais e contar quantas vezes acontece
-        for (int y : numeros) {
-            if(y==x){
-                contador++;
-            }
-            
-        }//imprimir apenas se o proximo valor não for igual
-        if(atual!=x){
-            cout<<"\n"<<x<<" apareceu "<<contador<<" vezes"<<endl;
-        }
-       atual=x;
+
+    for (int i = 0; i < 10; i++) {
+        cout << "\n" << i << " apareceu " << contagem[i] << " vezes";
     }
-    
-    
-    
 
     return 0;
 }
